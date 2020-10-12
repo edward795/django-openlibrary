@@ -1,0 +1,150 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+
+    <title>Open Library</title>
+  </head>
+  <style>
+    .button {
+      background-color: #000000;
+      border: none;
+      color: white;
+      padding: 15px 32px;
+      text-align: center;
+      text-decoration: none;
+      display: inline-block;
+      font-size: 16px;
+      margin: 4px 2px;
+      cursor: pointer;
+      -webkit-transition-duration: 0.4s; /* Safari */
+      transition-duration: 0.4s;
+    }
+    footer {
+      position: fixed;
+      left: 0;
+      bottom: 0;
+      width: 100%;
+      background-color: red;
+      color: white;
+      text-align: center;
+   }
+    
+    .button {
+      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
+      margin-top:100px;
+    }
+    
+    .button2:hover {
+      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
+      
+    }
+    
+    </style>
+  <body>
+    <nav class="navbar navbar-expand-lg navbar-datk bg-dark">
+        <a class="navbar-brand" href="#">Open Library</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
+            </li> 
+            <li class="nav-item">
+              <a class="nav-link" href="#">Sign In</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Books
+              </a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="upload_book">Upload</a>
+                <a class="dropdown-item" href="book_list">Book List</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">Manage</a>
+              </div>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+            </li>
+          </ul>
+          <form class="form-inline my-2 my-lg-0" method="post" action="filter_view">
+            {% csrf_token %}
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name='search'>
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+     {% block content %}
+
+  <center><h2 style="margin-top: 80px" >Welcome to Open Library</h2></center>
+  <div><img src="{% static 'library.jpg' %}"></div>
+
+      <div class="card mb-3" style="margin-top: 180px;">
+        <img src="..." class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Open Library</h5>
+          <p class="card-text">Open Library is an archive of books in digital format,mainly pdfs for all those on the internet to download!.Be a part of this campaign for free resources and contribute by uploading books!</p>
+          <p class="card-text"><small class="text-muted"></small></p>
+        </div>
+      </div>
+      
+      </div>
+      
+
+      <div class="card-deck" style="margin-top: 80px; margin-bottom:40px;">
+        <div class="card">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Download Books</h5>
+            <p class="card-text">On the top navgation bar access the 'Books' dropdown and select 'Books_List' to download or view books.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"></small>
+          </div>
+        </div>
+        <div class="card">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Contribute</h5>
+            <p class="card-text">Contribute to this community by accessing the 'upload' section in the 'Books' dropdown in navbar.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"></small>
+          </div>
+        </div>
+        <div class="card">
+          <img src="..." class="card-img-top" alt="...">
+          <div class="card-body">
+            <h5 class="card-title">Sign Up!</h5>
+            <p class="card-text">Do Sign Up on this website and be a patron.</p>
+          </div>
+          <div class="card-footer">
+            <small class="text-muted"></small>
+          </div>
+        </div>
+      </div>
+
+     {% endblock %}
+
+       <!-- Footer -->
+<footer style="height:80px; background-color:black;">
+  <center><p style="color:white;padding-top:30px;">&copy copyright library.com</p></center>
+</footer>
+<!-- Footer -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  </body>
+</html> 

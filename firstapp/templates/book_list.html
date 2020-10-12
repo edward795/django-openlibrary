@@ -1,0 +1,32 @@
+{% extends 'index.html' %}
+{% block content %}
+<br>
+<center><h3>Archive Of Books!</h3></center><br>
+<center><div>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">Cover</th>
+        <th scope="col">Title</th>
+        <th scope="col">Author</th>
+        <th scope="col">Pdf</th>
+      </tr>
+    </thead>
+    <tbody>
+        {% for book in books %}
+      <tr>
+        {% if book.cover %}
+        <td><img src="{{ book.cover.url }}" alt="{{ book.title }}" style="width:100px;"></td>
+        {% else %}
+        <td><span>No Cover</span></td>
+        {% endif %}
+        <td>{{book.title}}</td>
+        <td>{{book.author}}</td>
+        <td><a href="{{book.pdf.url}}">Download</a></td>
+      </tr>
+       {% endfor %}
+    </tbody>
+  </table>
+  
+  </div></center>
+{% endblock %}
