@@ -5,7 +5,6 @@
 <strong>Note:: This application has a responsive web design try it on your smartphone!</strong>
 <br>
 <h3>To get a Demo Of this application follow the <a href="http://edward55.pythonanywhere.com/">link.</a></h3>
-<br>
 <h3>Tools and Technologies</h3>
 <li>django 3.0</li>
 <li>sqlite 3</li>
@@ -15,7 +14,7 @@
 <li>FileField</li>
 <li>ImageField,Pillow</li>
 <li>django-bootstrapform</li>
-<li>django-widget-tweaks</li>
+<li>django-widget-tweaks</li><br>
 
 <h3>Features:</h3>
 <strong>PS: As i add more fetures i will update here</strong><br>
