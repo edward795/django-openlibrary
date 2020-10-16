@@ -1,42 +1,54 @@
 {% extends 'index.html' %}
+{% load bootstrap %}
 {% block content %}
 <br>
 <center><h3>Archive Of Books!</h3></center><br>
-<center><div>
-<table class="table">
+<div class="container">
+<form method="GET">
+{{ filter.form|bootstrap }}
+
+<button type="submit" class ="btn btn-primary">Search</button>
+</div>
+</form>
+
+<div>
+<table class="table" style="margin-top: 40px;overflow:auto;">
     <thead class="thead-dark">
       <tr>
         <th scope="col">Cover</th>
         <th scope="col">Title</th>
         <th scope="col">Author</th>
         <th scope="col">Pdf</th>
+        {% if user.is_authenticated %}
         <th scope="col">Delete</th>
+        {% endif %}
       </tr>
     </thead>
     <tbody>
-        {% for book in books %}
+        {% for book in filter.qs %}
       <tr>
         {% if book.cover %}
         <td><img src="{{ book.cover.url }}" alt="{{ book.title }}" style="width:100px;"></td>
         {% else %}
         <td><span>No Cover</span></td>
         {% endif %}
-    
         <td>{{book.title}}</td>
         <td>{{book.author}}</td>
         {% if book.pdf %}
         <td><a href="{{ book.pdf.url }}">Download</a></td>
         {% endif %}
+        {% if user.is_authenticated %}
         <td>
           <form method="post" action="{% url 'delete_book' book.pk %}">
             {% csrf_token %}
-            <button type="submit" class="btn btn-danger">Delete</button>
+            <button type="submit" style="background-color: rgba(255, 81, 0, 0.849);">Delete</button>
           </form>
         </td>
+        {% endif %}
       </tr>
        {% endfor %}
     </tbody>
   </table>
   
-  </div></center>
+  </div><br><br><br>
 {% endblock %}

@@ -21,12 +21,10 @@ from django.conf.urls.static import static
 
 
 urlpatterns = [
-    path('', views.index,name='index'),
-    path('upload_book',views.upload_book,name="upload_book"),
-    path('book_list',views.book_list,name="book_list"),
-    path('filter_view',views.filter_view,name="filter_view"),
-    path('books/<int:pk>/',views.delete_book,name="delete_book"),
-    path('filter',views.BookListView.as_view(),name="filter_view")
+    path('register', views.register,name='register'),
+    path('loginPage',views.loginPage,name="loginPage"),
+    path('logoutPage',views.logoutUser,name="logoutUser")
+    
     
 ]
 

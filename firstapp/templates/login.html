@@ -1,0 +1,21 @@
+{% extends 'index.html' %}
+{% block content %}<br>
+<center><h2>login</h2></center>
+<center><h5>You need to be logged in to view list of books.</h5></center>
+<div style="padding:40px;" >
+  {% for message in messages %}
+    {{ message }}
+  {% endfor %}
+</div>
+  <div style="padding:40px;" >
+<form method="post">
+    {% csrf_token %}
+    <div class="form-group">
+    <input type="text" name="username" class="form-control" placeholder="username"><br>
+    <input type="password" name="password" class="form-control" placeholder="Password"><br>
+    <input type="submit" class="btn btn-primary" value="login">
+    </div>
+</form>
+</div>
+
+{% endblock %}

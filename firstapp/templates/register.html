@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% load bootstrap %}
+{% block content %}
+<br>
+<center><h2>Registration</h2></center>
+<br>
+<div style="padding:40px;">
+<form method="post" action="">
+    {% csrf_token %}
+    {{form|bootstrap}}
+    <input class ="btn btn-primary" type="submit" name="Create User">
+</form>
+{{ form.errors }}
+</div><br><br>
+{% endblock %}

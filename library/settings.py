@@ -26,7 +26,7 @@ SECRET_KEY = '%nxd4$p-c4^bs^j$1!5z*78ove0$i5xjiv=twb49rri31xo#8o'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['secure-spire-91447.herokuapp.com','127.0.0.1']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,6 +39,10 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'firstapp',
+    'django_filters',
+    'bootstrapform',
+    'accounts',
+    'widget_tweaks'
     
 ]
 

@@ -12,20 +12,7 @@
     <title>Open Library</title>
   </head>
   <style>
-    .button {
-      background-color: #000000;
-      border: none;
-      color: white;
-      padding: 15px 32px;
-      text-align: center;
-      text-decoration: none;
-      display: inline-block;
-      font-size: 16px;
-      margin: 4px 2px;
-      cursor: pointer;
-      -webkit-transition-duration: 0.4s; /* Safari */
-      transition-duration: 0.4s;
-    }
+   
     footer {
       position: fixed;
       left: 0;
@@ -36,19 +23,11 @@
       text-align: center;
    }
     
-    .button {
-      box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2), 0 6px 20px 0 rgba(0,0,0,0.19);
-      margin-top:100px;
-    }
     
-    .button2:hover {
-      box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24),0 17px 50px 0 rgba(0,0,0,0.19);
-      
-    }
     
     </style>
   <body>
-    <nav class="navbar navbar-expand-lg navbar-datk bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
         <a class="navbar-brand" href="#">Open Library</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
@@ -60,7 +39,21 @@
               <a class="nav-link" href="{% url 'index' %}">Home <span class="sr-only">(current)</span></a>
             </li> 
             <li class="nav-item">
-              <a class="nav-link" href="#">Sign In</a>
+              {% if user.is_authenticated %}
+              <li class="nav-item">
+              <li class="nav-link" style="color:white;">Hello,{{ user.username }}</li>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="logoutPage">logout</a>
+            </li>
+              {% else %}
+              <li class="nav-item">
+              <a class="nav-link" href="register">Register</a>
+            </li>
+              <li class="nav-item">
+              <a class="nav-link" href="loginPage">log In</a>
+            </li>
+              {% endif %}
             </li>
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -70,7 +63,7 @@
                 <a class="dropdown-item" href="upload_book">Upload</a>
                 <a class="dropdown-item" href="book_list">Book List</a>
                 <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="#">Manage</a>
+                <a class="dropdown-item" href="filter">Advanced Search</a>
               </div>
             </li>
             <li class="nav-item">
@@ -134,10 +127,10 @@
         </div>
       </div>
 
-     {% endblock %}
+     {% endblock %}<br><br>
 
        <!-- Footer -->
-<footer style="height:80px; background-color:black;">
+<footer style="height:80px; background-color:black;margin-top:30px;">
   <center><p style="color:white;padding-top:30px;">&copy copyright library.com</p></center>
 </footer>
 <!-- Footer -->
