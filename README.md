@@ -21,4 +21,5 @@
 <li><b>Login Authentication: </b>Uses django's inbuilt User regitration and authentication.Only logged in users can view and delete books uploaded. </li>
 <li><b>Filter Queryset:</b> On the top NavBar django in the 'Books' there is an 'Advanced Search' bar which uses djnago's filter queryset to filter out uploaded books based on the custom criteria
 set by filter model.</b></li>
+<li><b>Social Media Login:</b> Added social media login options to the web application using<b>'django-allauth'</b>.Google and Facebook authentication is available in login page.</li>
 
